@@ -41,8 +41,17 @@ def push():
 	
 	os.system("git add --all")
 	os.system('git commit -m "' + committext + '"')
+	
+	inputVar = input("Diese Dateien Hochladen? (n/y[std]): ")
+	if inputVar == "no":
+		return
+	elif inputVar == "n":
+		return
+	
+	
 	os.system("git push origin master")
 	
-	input("Pause...")
+	print()
+	input("Fertig!...")
 
 main()
