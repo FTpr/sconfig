@@ -41,6 +41,7 @@ def push():
 	
 	os.system("git add --all")
 	os.system('git commit -m "' + committext + '"')
+	os.system("git push origin master")
 	
 	input("Pause...")
 
