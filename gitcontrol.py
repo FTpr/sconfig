@@ -8,7 +8,7 @@ def main():
 	clear()
 	print()
 	print(" ##############################")
-	print("          Git-Menue")
+	print("          Git-Tool")
 	print(" ##############################")
 	
 	print()
