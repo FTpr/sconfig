@@ -12,7 +12,7 @@ def main():
 	print(" ##############################")
 	
 	print()
-	print(" 0) Zurück")
+	print(" 0) Beenden")
 	
 	print()
 	print(" 1) Pull from Git")
@@ -52,6 +52,6 @@ def push():
 	os.system("git push origin master")
 	
 	print()
-	input("Fertig!...")
+	input("Fertig! ...")
 
 main()

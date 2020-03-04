@@ -39,7 +39,7 @@ def instMenue():
 	statusColor = colors.RESET
 	
 	
-	if checkForSamba():							#Prüfen ob SAMBA installiert ist
+	if checkForSMB():							#Prüfen ob SAMBA installiert ist
 		statusColor = colors.GREEN				#Zeilenfarbe auf grün ändern
 	printColored(" 3) SMB  (Ordnerfreigabe)", statusColor)		#Zeile grün schreiben
 	statusColor = colors.RESET
@@ -69,7 +69,7 @@ def instMenue():
 	elif inputVar == "2":		#Auswahl DNS
 		menueDNS()
 	elif inputVar == "3":		#Auswahl SMB
-		print("NNN")
+		menueSMB()
 	elif inputVar == "4":		#Auswahl FTP
 		print("NNN")
 	elif inputVar == "5":		#Auswahl Webserver
@@ -185,29 +185,58 @@ def removeDNS():			#Deinstallation DNS-Server + Zubehör
 
 #	Bereich SMB
 #---------------
-def checkForSamba():		#Ist der Dienst installiert?
+def checkForSMB():		#Ist der Dienst installiert?
 	return checkForProcess("smbd")
 
 
-def menueSamba():			#DNS-Menü
+def menueSMB():			#DNS-Menü
 	clear()
-	if checkForSamba():		#Wenn der Dienst bereits installiert ist
+	if checkForSMB():		#Wenn der Dienst bereits installiert ist
 		print()				#Menü zeichnen
 		print(" ------------")
 		print("   SMB-Menü")
 		print(" ------------")
 		print()
-		print(" 1) Bereich konfigurieren")
+		print(" 0 ) Zurück")
+		
+		print()
+		SMBBereicheLaden()
 		print()
 		
 		inputVar = input(":")
 
-def installSamba():			#Samba installieren
+	
+def SMBBereicheLaden():
+	global SMBfreigaben
+	counter = 1
+	if fileExists("/etc/samba/smb.conf"):		#wenn die Datei existiert
+		f = open("/etc/samba/smb.conf", "r")	#Datei öffnen
+		lines = f.readlines()						#Alle Zeilen einlesen
+		
+		for i in range(0, len(lines)):				#Zeilen einzeln durch gehen
+			line = lines[i].replace("\n", "")
+			if line.find("[") == 0:				#interface finden
+			
+				neueFreigabe = SMBfreigabe()
+				neueFreigabe.id = counter
+				neueFreigabe.name = line.split("[")[1].split("]")[0]
+				print("", neueFreigabe.id, ")", neueFreigabe.name)
+				
+				#print("", counter, ")", line.split("[")[1].split("]")[0])
+				counter += 1
+	print()
+	print("", counter, ") Bereich hinzufügen")
+
+def neuerSMBBereich():
+	print()
+	#Ordner prüfen, anlegen, chmod 777, chown -> Besitzer ändern
+
+def installSMB():			#Samba installieren
 	os.system("apt-get --assume-yes install samba")			#Installation mit automatischer Zustimmung Samba-Server
 
 
 #DARF NICHT AKTIVIERT WERDEN! BEI DEINSTALLATION VON SAMBA KANN DER ZUGRIFF VERLOREN GEHEN!
-#def removeSamba():			#Samba deinstallieren
+#def removeSMB():			#Samba deinstallieren
 #	os.system("apt-get --assume-yes remove samba")			#Deinstallation mit automatischer Zustimmung Samba-Server
 
 
