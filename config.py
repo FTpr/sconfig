@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from functions import * 	#für wichtige Funktionen
-from colors import *
+from colors import *		#für Farben
+from classes import *		#für Klassen
 
 fehlermeldung = ""
 
