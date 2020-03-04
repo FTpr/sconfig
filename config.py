@@ -204,7 +204,8 @@ def menueSMB():			#DNS-Menü
 		print()
 		
 		inputVar = input(":")
-
+	else:
+		installSMB()
 	
 def SMBBereicheLaden():
 	global SMBfreigaben
