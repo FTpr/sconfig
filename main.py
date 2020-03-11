@@ -82,6 +82,7 @@ def menue():
 	
 	#Switch Case Ersatz
 	if inputVar == "0":			#Zum Terminal zurückkehren
+		clear()
 		sys.exit(0)
 	elif inputVar == "1":		#Domain/Workgroup
 		print("NNN")

@@ -53,9 +53,10 @@ def instMenue():
 	
 	
 	print()
-	print(" 5) HTTP (Web-Server)")
-	print(" 6) Mail-Server (Senden)")
-	print(" 7) Mail-Server (Empfangen)")
+	print(" 5) Proxy (Forward-Server)")
+	print(" 6) HTTP  (Web-Server)")
+	print(" 7) Mail-Server (Senden)")
+	print(" 8) Mail-Server (Empfangen)")
 	
 	
 	
@@ -63,9 +64,9 @@ def instMenue():
 	inputVar = input(":")
 	
 	#Switch Case Ersatz
-	if inputVar == "0":		#Zurück zum Hauptmenü
+	if inputVar == "0":			#Zurück zum Hauptmenü
 		return						#Funktion Tools-Menü beenden
-	elif inputVar == "1":			#Auswahl DHCP
+	elif inputVar == "1":		#Auswahl DHCP
 		menueDHCP()
 	elif inputVar == "2":		#Auswahl DNS
 		menueDNS()
@@ -73,11 +74,13 @@ def instMenue():
 		menueSMB()
 	elif inputVar == "4":		#Auswahl FTP
 		print("NNN")
-	elif inputVar == "5":		#Auswahl Webserver
+	elif inputVar == "5":		#Auswahl Proxy
 		print("NNN")
-	elif inputVar == "6":		#Auswahl Mail-Send
+	elif inputVar == "6":		#Auswahl Webserver
 		print("NNN")
-	elif inputVar == "7":		#Auswahl Mail-Empfang
+	elif inputVar == "7":		#Auswahl Mail-Send
+		print("NNN")
+	elif inputVar == "8":		#Auswahl Mail-Empfang
 		print("NNN")
 	
 	else:						#Wenn eine unzulässige Eingabe gemacht wurde

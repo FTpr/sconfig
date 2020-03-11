@@ -23,6 +23,7 @@ def main():
 	
 	inputVar = input(":")
 	if inputVar == "0":
+		clear()
 		exit()
 	elif inputVar == "1":
 		pull()
